@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 from datetime import datetime
 from time import time
-from RGB_controller import RGB
+#from RGB_controller import RGB
 from threading import Thread
 import sys
 
@@ -116,4 +116,15 @@ def updateLed(id):
         return redirect('/rgb-lights')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import requests
+    import pandas as pd
+    # Hacer la solicitud a la API y obtener la respuesta en formato JSON
+    response = requests.get("https://sheet.best/api/sheets/1f79da48-9ec8-4116-8347-51c5e69a1763")
+    data = response.json()
+    print(data)
+    # Crear un DataFrame de pandas con los datos
+    df = pd.DataFrame(data)
+    # Imprimir el DataFrame para visualizar la tabla
+    print(df)
+
+    #app.run(debug=True)
