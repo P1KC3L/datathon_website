@@ -7,7 +7,8 @@ from threading import Thread
 import os
 
 app = Flask(__name__)
-# pwd = os.getcwd()
+
+source = "http://127.0.0.1:8080/"
 
 
 @app.route("/")
@@ -130,16 +131,4 @@ def updateLed(id):
 """
 
 if __name__ == "__main__":
-    """
-    import requests
-    import pandas as pd
-    # Hacer la solicitud a la API y obtener la respuesta en formato JSON
-    response = requests.get("https://sheet.best/api/sheets/1f79da48-9ec8-4116-8347-51c5e69a1763")
-    data = response.json()
-    print(data)
-    # Crear un DataFrame de pandas con los datos
-    df = pd.DataFrame(data)
-    # Imprimir el DataFrame para visualizar la tabla
-    print(df)
-    """
     app.run(debug=True, port=5000)

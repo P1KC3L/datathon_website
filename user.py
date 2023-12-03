@@ -1,9 +1,7 @@
-import uuid
-
-
 class User:
     def __init__(
         self,
+        id,
         position,
         area,
         a_liquid,
@@ -25,7 +23,7 @@ class User:
         civil_status,
         children,
     ):
-        self.id = uuid.uuid4().hex
+        self.id = id
         self.position = position
         self.area = area
         self.a_liquid = a_liquid
@@ -46,12 +44,6 @@ class User:
         self.living_time = living_time
         self.civil_status = civil_status
         self.children = children
-
-    def __str__(self):
-        return f"{self.name} {self.email} {self.password}"
-
-    def __repr__(self):
-        return f"{self.name} {self.email} {self.password}"
 
     def to_dict(self):
         return {
@@ -77,7 +69,3 @@ class User:
             "Estado Civil": self.civil_status,
             "Hijos": self.children,
         }
-
-    @classmethod
-    def from_dict(cls, data):
-        return cls(name=data["name"], email=data["email"], password=data["password"])
