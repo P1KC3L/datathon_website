@@ -1,24 +1,29 @@
 from flask import Flask, render_template, url_for, request, redirect
 from datetime import datetime
 from time import time
-#from RGB_controller import RGB
+
+# from RGB_controller import RGB
 from threading import Thread
 import os
 
 app = Flask(__name__)
-#pwd = os.getcwd()
+# pwd = os.getcwd()
 
-@app.route('/')
+
+@app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/add_employee')
+
+@app.route("/add_employee")
 def add_employee():
-    return render_template('add.html')
+    return render_template("add.html")
 
-@app.route('/search_employee')
+
+@app.route("/search_employee")
 def search_employee():
-    return render_template('search.html')
+    return render_template("search.html")
+
 
 """
 @app.route("/home")
@@ -124,7 +129,7 @@ def updateLed(id):
         return redirect('/rgb-lights')
 """
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
     import requests
     import pandas as pd
@@ -137,5 +142,4 @@ if __name__ == '__main__':
     # Imprimir el DataFrame para visualizar la tabla
     print(df)
     """
-    app.run(debug=True)
-    127.0.0.1:8080/getUser/getPrediction/1
+    app.run(debug=True, port=5000)
