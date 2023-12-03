@@ -138,3 +138,4 @@ if __name__ == '__main__':
     print(df)
     """
     app.run(debug=True)
+    127.0.0.1:8080/getUser/getPrediction/1
