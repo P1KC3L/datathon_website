@@ -1,4 +1,4 @@
-function AñadirEmpleado() {
+function AddEmpleado() {
     window.location.href = "add.html";
 }
 
