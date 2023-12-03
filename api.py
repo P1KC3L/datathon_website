@@ -18,6 +18,8 @@ from tensorflow.keras.layers.experimental import preprocessing
 
 app = Flask(__name__)
 
+db_source = "https://sheet.best/api/sheets/1f79da48-9ec8-4116-8347-51c5e69a1763"
+
 df = pd.DataFrame()
 mn = []
 
@@ -74,9 +76,7 @@ def get_data():
         return
     else:
         # Get Data from Google Sheets
-        response = requests.get(
-            "https://sheet.best/api/sheets/1f79da48-9ec8-4116-8347-51c5e69a1763"
-        )
+        response = requests.get(db_source)
         data = response.json()
 
         # Create a DataFrame with data read
@@ -295,11 +295,11 @@ def get_user_prediction_by_id(id):
         }
 
         anio = anio + 1
-        
+
         # Creating a prediction by loading the saved model for each year
         predictions = reloaded_model.predict(input_dict)
         prob = tf.nn.sigmoid(predictions[0])
-        
+
         #  Showing the prediction
         x_1.append(anio)
         y_1.append((prob.numpy()) * 100)
