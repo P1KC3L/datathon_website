@@ -20,13 +20,22 @@
   <body>
     <div class="container">
       <div class="image-section">
-        <img src="img/Fondo.png" alt="Fondo" />
+        <img
+          src="{{url_for('static', filename='images/Fondo.png')}}"
+          alt="Fondo"
+        />
         <button onclick="window.location.href='/add_employee'">
-          <img src="img/Add.png" alt="Añadir" />
+          <img
+            src="{{url_for('static', filename='images/Add.png')}}"
+            alt="Añadir"
+          />
         </button>
 
         <button onclick="window.location.href='/search_employee'">
-          <img src="img/Buscar.png" alt="Buscar" />
+          <img
+            src="{{url_for('static', filename='images/Buscar.png')}}"
+            alt="Buscar"
+          />
         </button>
       </div>
     </div>
